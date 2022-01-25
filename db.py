@@ -20,9 +20,12 @@ def update_messages_count(user_id):
     db_connection.commit()
 
 def get_stats_messsage():
-    db_object.execute("SELECT * FROM users ORDER BY messages DESC LIMIT 10")
-    result = db_object.fetchall()
-    reply_message = "- Top flooders:\n"
-    for i, item in enumerate(result):
-        reply_message += f"[{i + 1}] {item[1].strip()} ({item[0]}) : {item[2]} messages.\n"
+    db_object.execute("SELECT * FROM users ORDER BY message")
+    users = db_object.fetchall()
+    if users:
+        reply_message = "Top flooders:\n"
+        for user in users:
+            reply_message += f"{user[1].strip()} ({user[0]}): {user[2]} messages.\n"
+    else:
+        reply_message = "No data..."
     return reply_message
