@@ -12,6 +12,7 @@ CONTENT_TYPES = ["text",
                  "location",
                  "contact",
                  ]
+GROUP_ID = -1001691283602
 
 
 @bot.message_handler(commands=['start'])
@@ -29,13 +30,7 @@ def get_stats(message):
                  parse_mode="HTML")
     update_messages_count(message.from_user.id)
 
-# @bot.message_handler(func=lambda message: message.chat.id == -777796376, content_types=["text"])
-# def message_from_user(message):
-#     update_messages_count(message.from_user.id)
 
-
-restricted_messages = ["я веган", "i am vegan"]
-# Выдаём Read-only за определённые фразы
-@bot.message_handler(func=lambda message: message.text and message.text.lower() in restricted_messages and message.chat.id == -777796376)
-def set_ro(message):
-    bot.reply_to(message, "123")
+@bot.message_handler(content_types=["text"], func=lambda message: message.chat.id == GROUP_ID, )
+def message_from_user(message):
+    update_messages_count(message.from_user.id)
