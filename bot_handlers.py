@@ -29,7 +29,6 @@ def get_stats(message):
                  parse_mode="HTML")
     update_messages_count(message.from_user.id)
 
-
-@bot.message_handler(content_types=["text"])
+@bot.message_handler(func=lambda message: message.chat.id == -777796376, content_types=["text"])
 def message_from_user(message):
     update_messages_count(message.from_user.id)
