@@ -22,5 +22,5 @@ def message_from_user(message):
 
 @bot.message_handler(commands=["stats"])
 def get_stats(message):
-    bot.send_message(message.chat.id, get_stats_messsage)
+    bot.send_message(message.chat.id, get_stats_messsage())
     update_messages_count(message.from_user.id)
