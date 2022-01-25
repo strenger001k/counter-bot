@@ -26,7 +26,7 @@ def get_stats_messsage():
     if users:
         reply_message = "Top flooders:\n"
         for user in users:
-            reply_message += f"{user[1].strip()} ({user[0]}): {user[2]} messages.\n"
+            reply_message += f'<a href="https://t.me/{user[1].strip()}">{user[1].strip()}</a> ({user[0]}): {user[2]} messages.\n'
     else:
         reply_message = "No data..."
     return reply_message

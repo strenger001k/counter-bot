@@ -18,7 +18,7 @@ def send_welcome(message):
 @bot.message_handler(commands=["stats"])
 def get_stats(message):
     # bot.reply_to(message, "get_stats_messsage()")
-    bot.reply_to(message, get_stats_messsage())
+    bot.reply_to(message, get_stats_messsage(), disable_web_page_preview=True, parse_mode="HTML",)
     update_messages_count(message.from_user.id)
 
 
