@@ -21,9 +21,10 @@ def get_stats(message):
                  get_stats_messsage(),
                  disable_web_page_preview=True,
                  parse_mode="HTML")
-    update_messages_count(message.from_user.id)
+    if message.chat.id in GROUP_ID:
+        update_messages_count(message.from_user.id)
 
 
-@bot.message_handler(content_types=CONTENT_TYPES, func=lambda message: message.chat.id == GROUP_ID)
+@bot.message_handler(content_types=CONTENT_TYPES, func=lambda message: message.chat.id in GROUP_ID)
 def message_from_user(message):
     update_messages_count(message.from_user.id)
