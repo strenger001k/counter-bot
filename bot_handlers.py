@@ -8,12 +8,14 @@ db_object = db_connection.cursor()
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    user_id = message.from_user.id
-    username = message.from_user.username
-
     bot.reply_to(message, "hi!!!")
-    regestration(user_id)
-    update_messages_count(user_id, username)
+    regestration(message.from_user.id, message.from_user.username)
+    update_messages_count(message.from_user.id)
+
+
+@bot.message_handler(func=lambda message: True, content_types=["text"])
+def message_from_user(message):
+    update_messages_count(message.from_user.id)
 
 
 @bot.message_handler(commands=["stats"])
@@ -25,15 +27,8 @@ def get_stats(message):
         bot.reply_to(message, "No data...")
     else:
         reply_message = "- Top flooders:\n"
-        for item in enumerate(result):
-            reply_message += f"{item[1].strip()} ({item[0]}) : {item[2]} messages.\n"
+        for i, item in enumerate(result):
+            reply_message += f"[{i + 1}] {item[1].strip()} ({item[0]}) : {item[2]} messages.\n"
         bot.reply_to(message, reply_message)
 
-    user_id = message.from_user.id
-    update_messages_count(user_id)
-
-
-@bot.message_handler(func=lambda message: True, content_types=["text"])
-def message_from_user(message):
-    user_id = message.from_user.id
-    update_messages_count(user_id)
+    update_messages_count(message.from_user.id)
