@@ -1,0 +1,2 @@
+TOKEN = '5122569079:AAFTK9Ug5ttfk2vmWCrAADvM1ZwYv4T-JZQ'
+APP_NAME = 'check-datagrip'
