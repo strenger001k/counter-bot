@@ -1,4 +1,3 @@
-from markupsafe import re
 from bot import bot
 import psycopg2
 from config import DB_URI
