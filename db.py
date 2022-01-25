@@ -11,7 +11,7 @@ def regestration(user_id, username):
     result = db_object.fetchone()
 
     if not result:
-        db_object.execute("INSERT INTO users(id, username, message) VALUES (%s, %s, %s)", (user_id, username, 0))
+        db_object.execute("INSERT INTO users(id, username, message) VALUES (?, ?, ?)", (user_id, username, 0))
         db_connection.commit()
 
 
@@ -26,7 +26,7 @@ def get_stats_messsage():
     if users:
         reply_message = "Top flooders:\n"
         for user in users:
-            reply_message += f'<a href="https://t.me/{user[1].strip()}">{user[1].strip()}</a> ({user[0]}): {user[2]} messages.\n'
+            reply_message += f'<a href="https://t.me/{user[1].strip()}">{user[1].strip()}</a>: {user[2]} messages.\n'
     else:
         reply_message = "No data..."
     return reply_message
