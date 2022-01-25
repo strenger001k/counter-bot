@@ -30,8 +30,8 @@ def start(message):
 
 @bot.message_handler(commands=["stats"])
 def get_stats(message):
-    db_object.execute("SELECT * FROM users ORDER BY messages ASC")
-    users = db_object.fetchall()
+    # db_object.execute("SELECT * FROM users ORDER BY messages ASC")
+    # users = db_object.fetchall()
     bot.send_message(message.chat.id, "users")
     # if not users:
     #     bot.reply_to(message, "No data...")
