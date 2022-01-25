@@ -10,11 +10,6 @@ def send_welcome(message):
     update_messages_count(message.from_user.id)
 
 
-@bot.message_handler(commands=['get_id'])
-def send_welcome(message):
-    bot.send_message(message.chat.id, f'chat ID: {message.chat.id}')
-
-
 @bot.message_handler(commands=["stats"])
 def get_stats(message):
     bot.reply_to(message,
