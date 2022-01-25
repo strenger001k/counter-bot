@@ -11,7 +11,8 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['get_id'])
 def send_welcome(message):
-    bot.send_message(message.chat.id, f'{message.chat.id}')
+    bot.send_message(message.chat.id, f'chat ID: {message.chat.id}\nCounter is on')
+    GROUP_ID.append(message.chat.id)
 
 
 @bot.message_handler(commands=["stats"])
