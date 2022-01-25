@@ -38,4 +38,4 @@ restricted_messages = ["я веган", "i am vegan"]
 # Выдаём Read-only за определённые фразы
 @bot.message_handler(func=lambda message: message.text and message.text.lower() in restricted_messages and message.chat.id == -777796376)
 def set_ro(message):
-    bot.send_message(message.chat.id, "123")
+    bot.reply_to(message, "123")
