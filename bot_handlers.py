@@ -23,6 +23,7 @@ def get_stats(message):
                  parse_mode="HTML")
 
 
-@bot.message_handler(content_types=CONTENT_TYPES, func=lambda message: message.chat.id == GROUP_ID)
+@bot.message_handler(content_types=CONTENT_TYPES,
+                     func=lambda message: message.chat.id == GROUP_ID)
 def message_from_user(message):
     update_messages_count(message.from_user.id)
