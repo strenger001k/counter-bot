@@ -22,6 +22,7 @@ def update_messages_count(user_id):
 def get_stats_messsage():
     db_object.execute("SELECT * FROM users ORDER BY message DESC LIMIT 10")
     users = db_object.fetchall()
+    reply_message = ''
     if users:
         reply_message = "Top flooders:\n"
         for user in users:

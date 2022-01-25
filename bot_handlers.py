@@ -17,8 +17,8 @@ def send_welcome(message):
 
 @bot.message_handler(commands=["stats"])
 def get_stats(message):
-    bot.reply_to(message, "get_stats_messsage()")
-    # bot.send_message(message.chat.id, get_stats_messsage())
+    # bot.reply_to(message, "get_stats_messsage()")
+    bot.reply_to(message, get_stats_messsage())
     update_messages_count(message.from_user.id)
 
 
