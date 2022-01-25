@@ -1,5 +1,10 @@
 from bot import bot
 from db import *
+import psycopg2
+from config import DB_URI
+
+db_connection = psycopg2.connect(DB_URI, sslmode="require")
+db_object = db_connection.cursor()
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
