@@ -30,16 +30,17 @@ def start(message):
 
 @bot.message_handler(commands=["stats"])
 def get_stats(message):
-    db_object.execute("SELECT * FROM users ORDER BY messages DESC LIMIT 10")
+    db_object.execute("SELECT * FROM users ORDER BY messages ASC")
     users = db_object.fetchall()
-
-    if not users:
-        bot.reply_to(message, "No data...")
-    else:
-        list_all_users = []
-        for user in users:
-            list_all_users.append(user[0], user[1], user[2])
-        bot.reply_to(message, ''.join(list_all_users))
+    print(users)
+    # if not users:
+    #     bot.reply_to(message, "No data...")
+    # else:
+    #     print(users)
+    #     list_all_users = []
+    #     for user in users:
+    #         list_all_users.append(user[0], user[1], user[2])
+    #     bot.reply_to(message, ''.join(list_all_users))
 
     update_messages_count(message.from_user.id)
 
