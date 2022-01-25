@@ -30,6 +30,6 @@ def get_stats(message):
     update_messages_count(message.from_user.id)
 
 
-@bot.message_handler(content_types=["text", "audio", "document", "photo", "sticker", "video", "video_note", "voice", "location", "contact"])
+@bot.message_handler(content_types=["text"])
 def message_from_user(message):
     update_messages_count(message.from_user.id)
