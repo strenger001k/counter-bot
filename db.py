@@ -16,7 +16,7 @@ def regestration(user_id, username):
 
 
 def update_messages_count(user_id):
-    db_object.execute(f"UPDATE users SET message = message + 1 WHERE id = {user_id}")
+    db_object.execute("UPDATE users SET message =? WHERE id =?", (100, user_id))
     db_connection.commit()
 
 
