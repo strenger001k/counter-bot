@@ -15,13 +15,13 @@ def send_welcome(message):
     update_messages_count(message.from_user.id)
 
 
-@bot.message_handler(func=lambda message: True, content_types=["text"])
-def message_from_user(message):
+@bot.message_handler(commands=["stats"])
+def get_stats(message):
+    bot.reply_to(message, "get_stats_messsage()")
+    # bot.send_message(message.chat.id, get_stats_messsage())
     update_messages_count(message.from_user.id)
 
 
-@bot.message_handler(commands=["stats"])
-def get_stats(message):
-    bot.send_message(message.chat.id, "get_stats_messsage()")
-    bot.send_message(message.chat.id, get_stats_messsage())
+@bot.message_handler(func=lambda message: True, content_types=["text"])
+def message_from_user(message):
     update_messages_count(message.from_user.id)
