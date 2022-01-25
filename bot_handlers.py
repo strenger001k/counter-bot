@@ -7,7 +7,6 @@ from config import *
 def send_welcome(message):
     bot.reply_to(message, f"hi!!!")
     regestration(message.from_user.id, message.from_user.username)
-    update_messages_count(message.from_user.id)
 
 
 @bot.message_handler(commands=["stats"])
