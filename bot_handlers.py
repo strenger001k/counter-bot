@@ -31,6 +31,6 @@ def get_stats(message):
     update_messages_count(message.from_user.id)
 
 
-@bot.message_handler(content_types=["text", "sticker", "pinned_message", "photo", "audio"], func=lambda message: message.chat.id == GROUP_ID, )
+@bot.message_handler(content_types=["text", "sticker", "document", "photo", "audio", "video", "video_note", "voice", "location", "contact"], func=lambda message: message.chat.id == GROUP_ID, )
 def message_from_user(message):
     update_messages_count(message.from_user.id)
