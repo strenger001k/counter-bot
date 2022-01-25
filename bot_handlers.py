@@ -5,8 +5,8 @@ from config import *
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.reply_to(message, f"hi!!!\n{message.chat.id}")
-    regestration(message.from_user.id, message.from_user.username, message.chat.id)
+    bot.reply_to(message, f"hi!!!")
+    regestration(message.from_user.id, message.from_user.username)
     update_messages_count(message.from_user.id)
 
 
