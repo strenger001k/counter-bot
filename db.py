@@ -26,7 +26,6 @@ def update_messages_count(user_id, group):
 def get_stats_messsage(group):
     db_object.execute("SELECT * FROM users ORDER BY message DESC LIMIT 10")
     users = db_object.fetchall()
-    reply_message = ''
     if users:
         reply_message = "Top flooders:\n"
         for user in users:
@@ -34,5 +33,4 @@ def get_stats_messsage(group):
                 reply_message += f'<a href="https://t.me/{user[2].strip()}">{user[2].strip()}</a> - {user[3]} messages\n'
     else:
         reply_message = "No data..."
-    print(reply_message)
     return reply_message
