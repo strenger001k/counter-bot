@@ -7,7 +7,7 @@ db_object = db_connection.cursor()
 
 
 def regestration(user_id, username, group):
-    db_object.execute(f"SELECT * FROM users WHERE id = {user_id}")
+    db_object.execute(f"SELECT * FROM users WHERE id = {user_id} ORDER BY ID DESC")
     id_user = db_object.fetchone()
     if id_user:
         if id_user[1].strip() != group:
