@@ -6,12 +6,12 @@ db_connection = psycopg2.connect(DB_URI, sslmode="require")
 db_object = db_connection.cursor()
 
 
-def regestration(user_id, username):
+def regestration(user_id, username, group_id):
     db_object.execute(f"SELECT id FROM users WHERE id = {user_id}")
     result = db_object.fetchone()
 
     if not result:
-        db_object.execute("INSERT INTO users(id, username, message) VALUES (%s, %s, %s)", (user_id, username, 0))
+        db_object.execute("INSERT INTO users(id, username, message) VALUES (%s, %s, %s, %s)", (user_id, username, 0, '213'))
         db_connection.commit()
 
 
