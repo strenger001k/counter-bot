@@ -3,6 +3,7 @@ from telebot import types
 from config import *
 from bot_handlers import bot
 import os
+from messages import HEROKU_HELLO, WARNING
 
 server = flask.Flask(__name__)
 
@@ -11,14 +12,14 @@ server = flask.Flask(__name__)
 def get_message():
     bot.process_new_updates([types.Update.de_json(
          flask.request.stream.read().decode("utf-8"))])
-    return "!", 200
+    return WARNING, 200
 
 
 @server.route('/', methods=["GET"])
 def index():
     bot.remove_webhook()
     bot.set_webhook(url="https://{}.herokuapp.com/{}".format(APP_NAME, TOKEN))
-    return "Hello from Heroku!", 200
+    return HEROKU_HELLO, 200
 
 
 if __name__ == "__main__":

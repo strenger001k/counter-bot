@@ -1,5 +1,6 @@
 import psycopg2
 from config import DB_URI
+from messages import FLOODERS, NO_DATA
 
 db_connection = psycopg2.connect(DB_URI)
 db_object = db_connection.cursor()
@@ -32,10 +33,10 @@ def get_stats_messsage(group):
     db_object.execute("SELECT * FROM users ORDER BY message DESC LIMIT 10")
     users = db_object.fetchall()
     if users:
-        reply_message = "Top flooders:\n"
+        reply_message = FLOODERS
         for user in users:
             if user[1].strip() == group:
                 reply_message += f'<a href="https://t.me/{user[2].strip()}">{user[2].strip()}</a> - {user[3]} messages\n'
     else:
-        reply_message = "No data..."
+        reply_message = NO_DATA
     return reply_message

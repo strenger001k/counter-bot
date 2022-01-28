@@ -1,11 +1,12 @@
 from bot import bot
 from db import *
 from config import *
+from messages import GREETING
 
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.reply_to(message, "hi!!!")
+    bot.reply_to(message, GREETING)
     if not message.from_user.username:
         regestration(message.from_user.id, message.from_user.first_name, str(message.chat.id))
     else:
