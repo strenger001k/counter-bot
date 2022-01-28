@@ -6,7 +6,10 @@ from config import *
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     bot.reply_to(message, "hi!!!")
-    regestration(message.from_user.id, message.from_user.username, str(message.chat.id))
+    if not message.from_user.username:
+        regestration(message.from_user.id, message.from_user.first_name, str(message.chat.id))
+    else:
+        regestration(message.from_user.id, message.from_user.username, str(message.chat.id))
 
 
 @bot.message_handler(commands=["stats"])
