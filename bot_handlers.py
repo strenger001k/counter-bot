@@ -8,9 +8,13 @@ from messages import GREETING
 def send_welcome(message):
     bot.reply_to(message, GREETING)
     if not message.from_user.username:
-        regestration(message.from_user.id, message.from_user.first_name, str(message.chat.id))
+        regestration(message.from_user.id,
+                     message.from_user.first_name,
+                     str(message.chat.id))
     else:
-        regestration(message.from_user.id, message.from_user.username, str(message.chat.id))
+        regestration(message.from_user.id,
+                     message.from_user.username,
+                     str(message.chat.id))
 
 
 @bot.message_handler(commands=["stats"])
