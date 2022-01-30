@@ -27,9 +27,8 @@ def get_stats(message):
 
 @bot.message_handler(content_types=["new_chat_members"])
 def handler_new_member(message):
-    print(message.new_chat_members)
     user_name = message.new_chat_members[0].first_name
-    bot.send_message(message.chat.id, "Добро пожаловать, {0}!".format(user_name))
+    bot.send_message(message.chat.id, NEW_CHAT)
 
 
 @bot.message_handler(content_types=CONTENT_TYPES)

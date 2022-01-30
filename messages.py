@@ -1,4 +1,5 @@
 GREETING = 'hi!!!'
+NEW_CHAT = 'Я бот который считаю сообщения. Нажмите /start для регистрации'
 FLOODERS = 'Top flooders:\n'
 NO_DATA = 'No data...'
 HEROKU_HELLO = 'Hello from Heroku!'
