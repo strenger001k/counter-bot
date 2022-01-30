@@ -24,14 +24,12 @@ def get_stats(message):
                  disable_web_page_preview=True,
                  parse_mode="HTML")
 
+@bot.message_handler(content_types=["new_chat_members"])
+def handler_new_member(message):
+    user_name = message.new_chat_member.first_name
+    bot.send_message(message.chat.id, "Добро пожаловать, {0}!".format(user_name))
+
 
 @bot.message_handler(content_types=CONTENT_TYPES)
 def message_from_user(message):
     update_messages_count(message.from_user.id, str(message.chat.id))
-
-
-@bot.message_handler(func=lambda m: True, content_types=['new_chat_participant'])
-def on_user_joins(message):
-    name = message.new_chat_participant.first_name
-    print(name)
-    bot.reply_to(message, 'welcome')
