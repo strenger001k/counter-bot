@@ -30,7 +30,8 @@ def message_from_user(message):
     update_messages_count(message.from_user.id, str(message.chat.id))
 
 
-@bot.message_handler(content_types=['new_chat_participant'])
-def new_chat_members(message):
-    bot.send_message(message, "GREETING")
-
+@bot.message_handler(func=lambda m: True, content_types=['new_chat_participant'])
+def on_user_joins(message):
+    name = message.new_chat_participant.first_name
+    print(name)
+    bot.reply_to(message, 'welcome')
