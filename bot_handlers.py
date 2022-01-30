@@ -30,6 +30,7 @@ def message_from_user(message):
     update_messages_count(message.from_user.id, str(message.chat.id))
 
 
-@bot.middleware_handler(content_types=['new_chat_members'])
+@bot.message_handler(content_types=['new_chat_members'])
 def new_chat_members(message):
     bot.send_message(message, "GREETING")
+
