@@ -1,6 +1,6 @@
 import psycopg2
 from config import DB_URI
-from messages import FLOODERS, NO_DATA, LIST_OF_FLOODERS
+from messages import *
 
 db_connection = psycopg2.connect(DB_URI)
 db_object = db_connection.cursor()

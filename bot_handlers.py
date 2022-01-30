@@ -1,6 +1,6 @@
 from bot import bot
 from db import *
-from config import *
+from config import CONTENT_TYPES
 from messages import GREETING
 
 
