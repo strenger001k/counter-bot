@@ -24,9 +24,11 @@ def get_stats(message):
                  disable_web_page_preview=True,
                  parse_mode="HTML")
 
+
 @bot.message_handler(content_types=["new_chat_members"])
 def handler_new_member(message):
-    user_name = message.new_chat_member.first_name
+    print(message.new_chat_members)
+    user_name = message.new_chat_members[0].first_name
     bot.send_message(message.chat.id, "Добро пожаловать, {0}!".format(user_name))
 
 
