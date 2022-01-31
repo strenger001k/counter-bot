@@ -1,6 +1,6 @@
-GREETING = '😽'
+GREETING = '😽😽'
 NEW_CHAT = 'Привет 👋\nЯ бот который считаю сообщения. Нажмите /start для регистрации.'
-FLOODERS = 'Top flooders:\n'
+FLOODERS = 'Top 10 flooders:\n'
 NO_DATA = 'No data...'
 HEROKU_HELLO = 'Hello from Heroku!'
 LIST_OF_FLOODERS = '<a href="https://t.me/{}">{}</a> - {} messages ✉️\n'
