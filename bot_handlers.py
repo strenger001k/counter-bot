@@ -27,7 +27,6 @@ def get_stats(message):
 
 @bot.message_handler(content_types=["new_chat_members"])
 def handler_new_member(message):
-    bot.send_message(399374025, message)
     user_name = message.new_chat_members[0].first_name # ? пускай пока будет(
     bot.send_message(message.chat.id, NEW_CHAT)
 
