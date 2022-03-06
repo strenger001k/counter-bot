@@ -1,6 +1,6 @@
 TOKEN = '5122569079:AAEvNT6CySto1pu3cqnYMSwwz18GkuDSmyM'
 APP_NAME = 'check-datagrip'
-DB_URI = 'postgres://krahwddydehepx:be210ba7743fc23d3ba05b26d40e3ebbacf013922b9c1fea275bb62999a7a2e1@ec2-52-208-145-55.eu-west-1.compute.amazonaws.com:5432/darqdhm1m2m1lv'
+DB_URI = 'postgres://jrkbcnixekmfuc:553a5a4efc991b7763410a010b898cfb2d5b2028840fc0f367a4330dd9a96bf4@ec2-54-74-160-149.eu-west-1.compute.amazonaws.com:5432/d3m5e44er0qc0h'
 CONTENT_TYPES = ["text",
                  "sticker",
                  "document",
