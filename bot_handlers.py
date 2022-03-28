@@ -27,10 +27,12 @@ def get_stats(message):
 
 @bot.message_handler(content_types=["new_chat_members"])
 def handler_new_member(message):
-    user_name = message.new_chat_members[0].first_name # ? пускай пока будет(
     bot.send_message(message.chat.id, NEW_CHAT)
 
 
 @bot.message_handler(content_types=CONTENT_TYPES)
 def message_from_user(message):
-    update_messages_count(message.from_user.id, str(message.chat.id))
+    if message.from_user.username:
+        update_messages_count(message.from_user.id, str(message.chat.id), message.from_user.username)
+    else:
+        update_messages_count(message.from_user.id, str(message.chat.id), message.from_user.first_name)
